@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculo de Estoque</title>
+    <link rel="stylesheet" href="st.css">
+    <link rel="shortcut icon" href="src/rz.png" type="image/x-icon">
+</head>
+<body>
+<header >
+    <h2 class="h2">Calculo de Estoque de Matéria Prima do Aço</h2>
+    <p class="h2">Calcule a quantidade de seu estoque</p>
+    <div id="info" class="info">
+
+        <label for="nome" id="nome" class="nome">Nome/Empresa</label>
+
+        <input type="text" name="nomeEmpresa" id="nomeEmpresa"   title="Adicione o nome para que seja impresso no PDF">
+        <br>
+
+        <label for="tel" class="nome">Telefone</label>
+
+        <input type="text" name="t" id="t"  class="t"  title="Adicione seu número de telefone">
+        <br>
+
+        <label for="ender" class="nome">Endereço:</label>
+
+        <input type="text" name="endere" title="Escreva seu endereço" class="en"  id="endere">
+        
+    </div>
+</header>
+<main class="princ">
+    
+    <table class="table">
+        <thead>
+            <tr class="title">
+                <th colspan="8">
+                    <h3 class="titlePrin">Peso Teórico de Chapas</h3>
+                    <p class="formula">Formula calculo peso chapas</p>
+                    <p class="formula">Areá = comprimento x largura</p>
+                    <p class="formula">(((areá x espessura) / 1000000000) x 7870)x quantidade</p>
+                </th>
+            </tr>
+        </thead>
+    </table>       
+        <table class="table">
+            <thead class="especif">
+                <tr>
+                    <td>Espessura (mm)</td>
+                    <td>Comprimento (mm)</td>
+                    <td>Largura (mm)</td>
+                    <td>Quantidade (UN)</td>
+                    <td></td>
+                    <td>Peso total (kg)</td>
+                    <td></td>
+                </tr>
+            </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="number" name="chapa" id="chapa" placeholder="Espessura" class="form-control" title="Adicione a espessura da chapa em milimitros">
+                </td>
+                <td>
+                    <input type="number" name="comprimento" id="comprimento" placeholder="Comprimento" class="form-control" title="Adicione o Comprimento em Milimitros">
+                </td>
+                <td>
+                    <input type="number" name="largura" id="largura" placeholder="Largura" class="form-control" title="Adicione a largura em milimitros">
+                </td>
+                <td>
+                    <input type="number" name="Qua" id="quantidadeChapa" placeholder="Quantidade" class="form-control" title="Adicione a quantidade de chapas em estoque">
+                </td>
+                <td>
+                    <button onclick="calcularPesoChapa()" class="imp">CALCULAR</button>
+                </td>
+                <td >
+                    <input type="number" name="chapaTotal" 
+                    class="form-control"
+                    id="chapaTotal" disabled>
+                </td>
+                <td>
+                    <button onclick="adicionarChapaSelect()" class="imp">ADICIONE</button>
+                </td>
+            </tr>
+        </tbody>    
+    </table>       
+        <table class="table">
+        <tr class="title">
+            <th>
+                <h3 class="titlePrin">Peso Teórico de Tubo Redondas </h3>
+                <p class="formula">Formula do calculo do peso dos Tubos Redondos</p>
+                <p class="formula">(Espessura x &pi; x(Diametro - parede) x Comprimento x 0.00785) / 1000</p>
+            </th>
+        </tr>
+    </table>
+    <table class="table">
+        <thead class="especif">
+            <tr class="even height-calculo">
+                <td>Externo(mm)</td>
+                <td>parede (mm)</td>
+                <td>Comprim. (mm)</td>
+                <td>Quantidade (un)</td>
+                <td></td>
+                <td>Peso Total (kg)</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="number" name="Diâmetro" class="form-control" placeholder="Diametro"    id="barraRedondaDiametro">
+                </td>
+                <td>
+                    <input type="number" name="parede"  class="form-control" placeholder="Espessura" id="barraRedondaparede">
+                </td> 
+                <td>
+                    <input type="number" name="Comprimento" 
+                    class="form-control"
+                    placeholder="Comprimento" id="barraRedondaComprimento">
+                </td>   
+                <td>
+                    <input type="number" name="Quantidade" class="form-control" placeholder="Quantidade" id="barraRedondaQuantidade">
+                </td>
+                <td class="background-button">
+                    <button onclick="calcularPesoRedondas()"  class="imp">CALCULAR</button>
+                </td>
+                <td>
+                    <input type="number" name="recebeBarraRedonda"
+                    class="form-control"
+                    id="recebeBarraRedonda" disabled>
+                </td>
+                <td>
+                    <button onclick="adicionarBarraRedondaSelect()" class="imp">Adicione</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table">
+        <tr class="title">
+            <th>
+                <h3 class="titlePrin">Peso Teórico Tubos Quadrado </h3>
+                <p class="formula">Calculo peso teórico tubos Quadrados</p>
+                <p class="formula">Diâmetro x Diâmetro x 7,85 / 1000</p>
+            </th>
+        </tr>
+    </table>
+    <table class="table">
+        <thead class="especif">
+            <tr class="even height-calculo">
+                <td>Bitola (mm)</td>
+                <td>Parede (mm)</td>
+                <td>Comprimento(mm)</td>
+                <td>Quantidade (un)</td>
+                <td></td>
+                <td>Peso Total(kg)</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="number" name="Bitola" class="form-control" placeholder="Bitola" id="tubosQuadradosBitola">
+                </td>
+                <td>
+                    <input type="number" name="Parede" class="form-control" placeholder="Espessura" id="tubosQuadradosParede">
+                </td> 
+                <td>
+                    <input type="number" name="Comprimento"  class="form-control" placeholder="Comprimento" id="tubosQuandradosComprimento">
+                </td>   
+                <td>
+                    <input type="number" name="Quantidade" class="form-control" placeholder="Quantidade" id="tubosQuadradosQuantdade" >
+                </td>
+                <td class="background-button">
+                    <button  onclick="calculoTubosQuadrados()" class="imp">CALCULAR</button>
+                </td>
+                <td>
+                    <input type="number" name="totalTuboQuadrado"
+                    class="form-control" id="totalTuboQuadrado" disabled>
+                </td>
+                <td>
+                    <button onclick="adicionarTubosQuadradosSelect()" class="imp">Adicionar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table">
+        <tr class="title">
+            <th>
+                <h3 class="titlePrin">Peso Teórico de tubos Retangulares</h3>
+                <p class="formula">Formula peso teórico tubos Retangulares</p>
+                <p class="formula">(2 x espessura x (Lado Maior + Lado menor - 2 x espessura) x Comprimento x 7,85) / 1000 </p>
+            </th>
+        </tr>
+    </table>
+    <table class="table">
+        <thead class="especif">
+            <tr class="even height-calculo">
+                <td>Dimensão. maior(mm)</td>
+                <td>Dimensão Menor (mm)</td>
+                <td>Parede (mm)</td>
+                <td>Comprimento (mm)</td>
+                <td>Quantidade (mm)</td>
+                <td></td>
+                <td>Peso Total (kg)</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="number" name="tubosRetangularesMaior" class="form-control" placeholder="Dimensão Maior"  id="tubosRetangularesMaior">
+                </td>
+                <td>
+                    <input type="number" name="tubosRetangularesMenor" class="form-control" placeholder="Dimensão Menor"   id="tubosRetangularesMenor">
+                </td>
+                <td>
+                    <input type="number" name="tubosRetangularesparede" class="form-control" placeholder="Espessura"  id="tubosRetangularesParede">
+                </td>
+                <td>
+                    <input type="number" name="tubosRetangularesComprimento" class="form-control" placeholder="Comprimento" id="tubosRetangularesComprimento">
+                </td>
+                <td>
+                    <input type="number" name="tubosRetangularesQuantidade" class="form-control" placeholder="Quantidade"  id="tubosRetangularesQuantidade">
+                </td>
+                <td class="background-button">
+                    <button onclick="calculoTubosRetangulares()" class="imp">CALCULAR</button>
+                </td>
+                <td >
+                    <input type="number" name="tubosRetangularesTotal"
+                    class="form-control" id="tubosRetangularesTotal" disabled>
+                </td>
+                <td>
+                    <button onclick="adicionarRetanguloSelect()" class="imp">ADICIONAR</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table">
+        <tr class="title">
+            <th>
+                <h3 class="titlePrin">Peso Teórico Barras Chatas</h3>
+                <p class="formula">Formula peso teórico Barras Chatas</p>
+                <p class="formula">(Largura x Espessura x 7,85) / 1000</p>  
+            </th>
+        </tr>
+    </table>
+    <table  class="table">
+        <thead class="especif">
+            <tr>
+                <td class="wha">Largura (mm)</td>
+                <td class="wha">Espessura (mm)</td>
+                <td class="wha">Comprimento (mm)</td>
+                <td class="wha">Quantidade (und)</td>
+                <td class="wha"></td>
+                <td class="wha">Peso Total (kg)</td>
+                <td class="wha"></td>
+            </tr>
+        </thead>
+    </table>
+    <table class="table">
+        <tbody>
+            <tr>
+                <td>
+                    <input type="number" name="barraChatasLargura" placeholder="Largura" class="form-control" id="barraChatasLargura">
+                </td>
+                <td>
+                    <input type="number" name="barrasChatasEspessura"
+                    class="form-control" 
+                    placeholder="Espessura" id="barrasChatasEspessura">
+                </td>
+                <td>
+                    <input type="number" name="barrasChatasComprimento"
+                    class="form-control"
+                    placeholder="Comprimento"  id="barrasChatasComprimento">
+                </td>
+                <td>
+                    <input type="number" name="barrasChatasQuantidade"
+                    class="form-control"
+                    placeholder="Quantidade"  id="barrasChatasQuantidade">
+                </td>
+                <td>
+                    <button onclick="calculoBarrasChatas()" class="imp">CALCULAR</button>
+                </td>
+                <td>
+                    <input type="number" name="barrasChatasTotal"
+                    class="form-control" id="barrasChatasTotal" disabled>
+                </td>
+                <td>
+                    <button onclick="adicionarBarraChataSelect()" class="imp">ADICIONAR</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table">
+        <tr class="title">
+            <th>
+                <h3 class="titlePrin">Peso Teórico de Cantoneira</h3>
+                <p class="formula">Formula peso teórico Cantoneiras</p>
+                <p class="formula">(Largura Aba + lagura Aba - Espessura x 8) / 1000</p>  
+            </th>
+        </tr>
+    </table>
+    <table class="table">
+        <thead class="especif">
+            <tr>
+                <td>Largura Aba (mm)</td>
+                <td>Espessura (mm)</td>
+                <td>Comprimento (mm)</td>
+                <td>Quantidade (und)</td>
+                <td></td>
+                <td>Peso Total (kg)</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="number" name="larguraCantoneira" class="form-control" placeholder="largura" id="larguraCantoneira">
+                </td>
+                <td>
+                    <input type="number" name="espessuraCantoneira" class="form-control" placeholder="Espessura" id="espessuraCantoneira">
+                </td>
+                <td>
+                    <input type="number" name="comprimentoCantoneira" class="form-control" placeholder="Comprimento"id="comprimentoCantoneira">
+                </td>
+                <td>
+                    <input type="number" name="quantidadeCantoneira" class="form-control" placeholder="Quantidade" id="quantidadeCantoneira">
+                </td>
+                <td>
+                    <button onclick="calculoCantoneiras()" class="imp">CALCULAR</button>
+                </td>
+                <td>
+                    <input type="number" name="totalCantoneira"
+                    class="form-control" id="totalCantoneira" disabled>
+                </td>
+                <td>
+                    <button onclick="adicionarCantoneiraSelect()" class="imp">ADICIONAR</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <select name="recebe" id="recebe" size="10">
+    </select>
+    <button id="imprimir" onclick="imprimirPdf()" class="imp"> IMPRIMIR</a></button>
+</main>
+<footer class="footer">rodrigozambello34@gmail.com</footer>
+
+<script src="index.js"></script>
+
+</body>
+</html>

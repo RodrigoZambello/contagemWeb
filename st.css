@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+}
+
+body{
+    background-color: #CCF9F9;
+}
+
+.h2{
+    text-align: center;
+    background-color: #2128BF;
+    color: black;
+    margin: 0;
+    padding: 20px;
+}
+
+.info{
+    background-color: #2128BF;
+    color: black; 
+    padding: 10PX;
+}
+
+.nome{
+    padding-left: 104px;
+}
+
+.t{
+    margin: 0 0 0 44px;
+}
+
+.en{
+    margin: 0 0 0 35px; 
+}
+
+.princ{
+    margin: 0 auto;
+    width: 950px;
+    box-shadow: 5px 5px 10px  black;
+}
+
+.table{
+    width: 850px;
+    margin: 0 auto;
+}
+
+.titlePrin{
+    display: inline-block;
+    color: black;
+    font-weight: 700;
+    margin: 0;
+}
+table{
+    width: 100%;
+    text-align: center;
+}
+
+thead{
+    box-sizing: border-box;
+}
+
+th{
+    padding: 10px 0 3px 0;
+    border-bottom: 2px solid black;
+}
+.title{
+    background-image: linear-gradient(to bottom, #2128BF,#363CBF,#495ABF,#B0B6D9 );
+    color: #fff;
+}
+
+.formula{
+    margin: 0;
+    padding: 0;
+    font-size: 10px;
+    color: black;
+}
+h3{
+    font-size: 18px;
+    font-weight: 700;
+}
+#recebe{
+    width: 100%;
+    height: 200px;    
+}
+
+.form-control{
+    width: 90px;
+}
+
+td{
+    background-color: black;
+    text-align: center;
+    color: white;
+    font-size: 13px;
+}
+
+.especif{
+    border-color: black;
+}
+
+.chatas{
+    width: 217px;
+}
+
+.imp{
+    background-color: white;
+}
+
+.imp:hover{
+    background-color: rgb(251, 0, 0);
+}
+
+.wha{
+    width: 132px;
+}
+
+.footer{
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 20px;
+    margin: 20px;
+}
