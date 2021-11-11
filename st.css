@@ -8,14 +8,14 @@ body{
 
 .h2{
     text-align: center;
-    background-color: #2128BF;
-    color: black;
+    background-image: linear-gradient(to right,#2128BF,#363CBF,#495ABF,#B0B6D9);
+    color: white;
     margin: 0;
     padding: 20px;
 }
 
 .info{
-    background-color: #2128BF;
+    background-image: linear-gradient(to left,#2128BF,#363CBF,#495ABF,#B0B6D9);
     color: black; 
     padding: 10PX;
 }
@@ -119,4 +119,11 @@ td{
     color: white;
     padding: 20px;
     margin: 20px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
