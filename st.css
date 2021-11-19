@@ -8,14 +8,14 @@ body{
 
 .h2{
     text-align: center;
-    background-image: linear-gradient(to right,#2128BF,#363CBF,#495ABF,#B0B6D9);
-    color: white;
+    background-image: linear-gradient(to right,#495ABF,#B0B6D9);
+    color: black;
     margin: 0;
     padding: 20px;
 }
 
 .info{
-    background-image: linear-gradient(to left,#2128BF,#363CBF,#495ABF,#B0B6D9);
+    background-image: linear-gradient(to right,#495ABF,#B0B6D9);
     color: black; 
     padding: 10PX;
 }
@@ -63,7 +63,7 @@ th{
     border-bottom: 2px solid black;
 }
 .title{
-    background-image: linear-gradient(to bottom, #2128BF,#363CBF,#495ABF,#B0B6D9 );
+    background-image: linear-gradient(to bottom,#495ABF,#B0B6D9 );
     color: #fff;
 }
 
