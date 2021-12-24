@@ -6,17 +6,23 @@ body{
     background-color: #CCF9F9;
 }
 
+header{
+    background-image: url('./imagens/estoque.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+}
+
 .h2{
     text-align: center;
-    background-image: linear-gradient(to right,#495ABF,#B0B6D9);
+    font-size: 40px;
     color: black;
     margin: 0;
     padding: 20px;
 }
 
 .info{
-    background-image: linear-gradient(to right,#495ABF,#B0B6D9);
-    color: black; 
+    color: white; 
     padding: 10PX;
 }
 
@@ -106,7 +112,14 @@ td{
 }
 
 .imp:hover{
-    background-color: rgb(251, 0, 0);
+    background-color: rgb(0, 81, 255);
+}
+
+#imprimir{
+    position: relative;
+    left: 90%;
+    padding: 10px;
+    margin: 10px 0 10px 0;
 }
 
 .wha{

@@ -457,3 +457,8 @@ function imprimirPdf(){
         
     }  
 }
+
+/*
+function checkObject(){
+    if ()
+}*/
